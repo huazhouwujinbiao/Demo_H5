@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<script src="js/index.js"></script>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <link rel="stylesheet" href="css/index.css" />
+		<title>订餐系统</title>
+	</head>
+	<body>
+		<div data-role="page" id="login">
+		  <div data-role="header">
+		    <h1>订餐系统</h1>
+		  </div>
+		  <div data-role="content">
+			  <div data-role="fieldcontain">
+			    <label for="loginusername">账号：</label>
+			    <input type="text" name="loginusername" id="loginusername">
+			    <label for="loginpass">密码：</label>
+			    <input type="password" name="loginpass" id="loginpass">
+			  </div>
+			 <a  id="loginL" href="#home" data-role="button" >登录</a>
+			 <a  id="loginR" href="#register" data-role="button">注册</a>		
+		  </div>
+		  <div data-role="footer" data-position="fixed">
+		    <h1>加盟热线：123456789</h1>
+		  </div>
+		</div>
+
+		<div data-role="page" id="register">
+		  <div data-role="header">
+		    <h1>订餐系统</h1>
+		    <a href="#" data-role="button" data-rel="back">返回</a>
+		  </div>
+		  <div data-role="content">
+		   	 <div data-role="fieldcontain">
+			    <label for="registerusername">账号：</label>
+			    <input type="text" name="registerusername" id="registerusername">
+			    <label for="registerpass">密码：</label>
+			    <input type="password" name="registerpass" id="registerpass">
+			    <label for="registerpass2">确认密码：</label>
+			    <input type="password" name="registerpass2" id="registerpass2">
+			  </div>
+			   <a  id="regR" href="#login" data-role="button">注册</a>	
+		  </div>
+		  <div data-role="footer" data-position="fixed">
+		    <h1>加盟热线：123456789</h1>
+		  </div>
+		</div>
+
+		<div data-role="page" id="home">
+		  <div data-role="header">
+		    <h1> <a href="#third" data-role="button">查看我的饿单</a></h1>
+		    <a href="#" data-role="button" data-rel="back">返回</a>
+			<script>document.write("<a href='#login' data-role='button'><span class='loginStatus'>"+localStorage.username+"·注销</span></a>");</script>
+		  </div>
+		  <div data-role="content">
+			<ul data-role="listview" data-inset="true" data-filter="true">		
+				<li>
+					 <a href="#second" onclick="gotoPage(10,'日式豆腐');">
+					 <img src="img/1.jpg" />
+					 <h3>日式豆腐</h3>
+					 <p>10￥/份&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月消：256份</p>
+					 </a>
+					 <a href="#second" data-icon="gear" onclick="gotoPage(10,'日式豆腐');"></a>
+				</li>
+				<li>
+					<a href="#second" onclick="gotoPage(8,'青椒炒牛肉');">
+					  <img src="img/2.jpg" />
+					  <h3>青椒炒牛肉</h3>
+					  <p>8￥/份&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月消：156份</p>		 
+					</a>
+					<a href="#second" data-icon="gear" onclick="gotoPage(8,'青椒炒牛肉');"></a>
+				</li>
+				<li>
+					<a href="#second" onclick="gotoPage(12,'清蒸石斑');">
+					  <img src="img/3.jpg" />
+					  <h3>清蒸石斑</h3>
+					  <p>12￥/份&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月消：331份</p>			 
+					</a>
+					<a href="#second" data-icon="gear" onclick="gotoPage(12,'清蒸石斑');"></a>
+				</li>
+				<li>
+					<a href="#second" onclick="gotoPage(15,'宫保鸡丁');">
+					  <img src="img/4.jpg" />
+					  <h3>宫保鸡丁</h3>
+					  <p>15￥/份&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月消：432份</p>		 
+					</a>
+					<a href="#second" data-icon="gear" onclick="gotoPage(15,'宫保鸡丁');"></a>
+				</li>
+				<li>
+					<a href="#second" onclick="gotoPage(11,'烤地瓜');">
+					  <img src="img/5.jpg" />
+					  <h3>烤地瓜</h3>
+					 <p>11￥/份&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月消：551份</p>		 
+					</a>
+					<a href="#second" data-icon="gear" onclick="gotoPage(11,'烤地瓜');"></a>
+				</li>
+				<li>
+					<a href="#second" onclick="gotoPage(14,'香炒牛河');">
+					  <img src="img/6.jpg" />
+					  <h3>香炒牛河</h3>
+					 <p>14￥/份&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月消：131份</p>		 
+					</a>
+					<a href="#second" data-icon="gear" onclick="gotoPage(14,'香炒牛河');"></a>
+				</li>
+				<li>
+					<a href="#second" onclick="gotoPage(7,'美味竹笋');">
+					  <img src="img/7.jpg" />
+					  <h3>美味竹笋</h3>
+					  <p>7￥/份&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月消：81份</p>	 
+					</a>
+					<a href="#second" data-icon="gear" onclick="gotoPage(7,'美味竹笋');"></a>
+				</li>
+			</ul>
+		 </div>
+		  <div data-role="footer" data-position="fixed">
+		    <h1>加盟热线：123456789</h1>
+		  </div>
+		</div>
+
+		<div data-role="page" data-title="下单" id="second" data-add-back-btn="true">
+		<div data-role="header">
+		<a href="#" data-role="button" data-rel="back">返回</a>
+		<h1 id="secondTitle">下单</h1>
+		<script>document.write("<a href='#login' data-role='button'><span class='loginStatus'>"+localStorage.username+"·注销</span></a>");</script>
+		</div>
+		<div data-role="content" id="content">
+		    <label for="location">送货地址：</label>
+		    <input type="text" name="location" id="location">
+		    <label for="phone">联系号码：</label>
+		    <input type="text" name="phone" id="phone">
+			订购数量：<br>
+			<input type="range" name="num" id="num" value="1" min="0" max="100" data-highlight="true" />
+		   <a href="#home" data-role="button"  id="addToStorage"  />送出订购</a>
+
+		</div>
+		<div data-role="footer" data-position="fixed" style="text-align:center">
+		 <h1>加盟热线：123456789</h1>
+		</div>
+		</div>
+		<div data-role="page" data-title="订单列表" id="third" >
+			<div data-role="header">
+				 <a href="#" data-role="button" data-rel="back">返回</a><h1>订单列表</h1>
+				<script>document.write("<a href='#login' data-role='button'><span class='loginStatus'>"+localStorage.username+"·注销</span></a>");</script>
+			</div>
+			<div data-role="content" id="content">
+				<a href="#" data-role="button" data-inline="true" id="deletelist">删除订单</a>
+				以下为您的订购列表：
+				<div class="table-container">
+					<table style="width: 100%">
+						<thead>
+							<th>用户</th><th>菜名</th><th>价格</th><th>订购数量</th><th>送货地址</th><th>联系号码</th><th>总金额</th><th>订单日期</th>
+						</thead>
+						<tbody id="footlist">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" style="text-align:center">
+			 		 <h1>加盟热线：123456789</h1>
+			</div>
+		</div>
+</html>
