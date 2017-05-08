@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
         settings.setDatabasePath(dbPath);
 
         settings.setDomStorageEnabled(true);
-
+        settings.setGeolocationEnabled(true);
     }
 
     private void initData() {
@@ -77,7 +77,29 @@ public class MainActivity extends Activity {
     }
 
     class MyChromeViewClient extends WebChromeClient {
-
+        public void onGeolocationPermissionsShowPrompt(final String origin, final android.webkit.GeolocationPermissions.Callback callback) {
+            final boolean remember = true;
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("位置信息");
+            builder.setMessage(origin + "允许获取您的地理位置信息吗？").setCancelable(true).setPositiveButton("允许",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog,
+                                            int id) {
+                            callback.invoke(origin, true, remember);
+                        }
+                    })
+                    .setNegativeButton("不允许",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int id) {
+                                    callback.invoke(origin, false, remember);
+                                }
+                            });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
         @Override
         public void onExceededDatabaseQuota(String url, String databaseIdentifier, long currentQuota, long estimatedSize, long totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater)
         {

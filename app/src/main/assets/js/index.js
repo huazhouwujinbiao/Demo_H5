@@ -212,6 +212,25 @@ $(function(){
 	});
 	$('#second').on("pageshow",function(event){
 		$('#secondTitle').html(localStorage.foot+": "+localStorage.price+"￥/份");
+		if(!localStorage.address){
+			// 百度地图API功能
+			var geolocation = new BMap.Geolocation();
+			geolocation.getCurrentPosition(function(r){
+				if(this.getStatus() == BMAP_STATUS_SUCCESS){
+					var mk = new BMap.Marker(r.point);
+					var new_point = new BMap.Point(r.point.lng,r.point.lat);
+					var address =r.address;
+					var str=address.province+address.city+address.district+address.street+address.street_number;
+					localStorage.address=str;
+					$('#location').val(str);
+				}
+				else {
+					alert('failed'+this.getStatus());
+				}        
+			},{enableHighAccuracy: true});
+		}else{
+			$('#location').val(localStorage.address);
+		}
 	});
 	$('#third').on("pageshow",function(event){
 		selectAll(tbNameBook);
@@ -219,6 +238,10 @@ $(function(){
 	$('#deletelist').click(function(e){
 		deleteAll(tbNameBook);
 	});
+	$('#location').click(function(e){
+	});
+
+
 });
 function gotoPage(price,foot){
 	localStorage.foot=foot;
